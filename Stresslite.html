@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stresslite Watches - Smart Time Management for Students</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5e35b1;
+            --primary-light: #9162e4;
+            --secondary: #00acc1;
+            --accent: #ff7043;
+            --light: #f5f5f5;
+            --dark: #263238;
+            --text: #455a64;
+            --success: #43a047;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 80px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo-slogan {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            display: block;
+            line-height: 1.2;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://example.com/your-hero-pattern.jpg') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            margin: 0 10px;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+
+        .secondary-button:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .hero-image {
+            margin-top: 50px;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* Product Showcase */
+        .product-showcase {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .showcase-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .showcase-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .showcase-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .showcase-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .showcase-content h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .showcase-content p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .specs-list {
+            margin-bottom: 30px;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .spec-icon {
+            color: var(--secondary);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            margin: 20px;
+            display: none;
+        }
+
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .testimonial-role {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: var(--secondary);
+            transform: scale(1.2);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 172, 193, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-content h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .mission-vision {
+            margin-top: 30px;
+        }
+
+        .mission-vision h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .mission-vision h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background: var(--secondary);
+            border-radius: 50%;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 5px;
+        }
+
+        .social-links-footer {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links-footer a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links-footer a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 350px;
+            height: 100vh;
+            background: var(--primary);
+            z-index: 1001;
+            transition: all 0.3s ease;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .close-menu {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+        }
+
+        .mobile-nav ul li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Page Transitions */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 120px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .button-group {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .cta-button {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+
+        /* Base styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Responsive rules */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #444;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 150px;
+    padding: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Stresslite Logo" class="logo">
+                <div class="logo-text">
+                    Stresslite
+                    <span class="logo-slogan">Manage your time. Manage your stress</span>
+                </div>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="About us.html" class="nav-link" data-page="about">About Us</a></li>
+                    <li><a href="product.html" class="nav-link" data-page="product">Product</a></li>
+                    <li><a href="gallery.html" class="nav-link" data-page="gallery">Gallery</a></li>
+                    <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+
+                <div class="menu-icon" id="menuIcon">&#9776;</div> <!-- Hamburger icon -->
+
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Stresslite Logo" class="logo">
+                <div class="logo-text">
+                    Stresslite
+                    <span class="logo-slogan">Balance. Achieve. Thrive.</span>
+                </div>
+            </div>
+            <button class="burger-menu" id="openMenuBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <script>
+            /*const openMenuBtn = document.getElementById('openMenuBtn');
+            const closeMenuBtn = document.getElementById('closeMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+        
+            openMenuBtn.addEventListener('click', () => {
+                mobileMenu.style.display = 'block';
+            });
+        
+            closeMenuBtn.addEventListener('click', () => {
+                mobileMenu.style.display = 'none';
+            });
+        
+            // Optional: hide when a nav link is clicked
+            document.querySelectorAll('.mobile-nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.style.display = 'none';
+                });
+            });
+
+            */
+
+            
+  const menuIcon = document.getElementById('menuIcon');
+  const navLinks = document.getElementById('navLinks');
+
+  menuIcon.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+        </script>
+        
+
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-page="about">About Us</a></li>
+                <li><a href="#product" class="nav-link" data-page="product">Product</a></li>
+                <li><a href="#gallery" class="nav-link" data-page="gallery">Gallery</a></li>
+                <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Home Page -->
+    <div class="page active" id="home-page">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Smart Time Management for Busy Students</h1>
+                <p>The Stresslite Watch helps university students balance academics and social life with intelligent scheduling, stress tracking, and productivity features.</p>
+                <div class="button-group">
+                    <a href="#product" class="cta-button">Explore Features</a>
+                    <!--<a href="#contact" class="cta-button secondary-button">Pre-order Now</a>-->
+                </div>
+                <div class="hero-image">
+                    <!--<video src="advert.mp4" alt="Stresslite Watch">-->
+                        <video autoplay loop muted>
+                            <source src="advert.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Stresslite?</h2>
+                    <p>Designed specifically for university students to help manage the challenges of academic life while maintaining a healthy social balance.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Smart Scheduling</h3>
+                        <p>Automatically organizes your classes, study sessions, and social events for optimal time management.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Stress Monitoring</h3>
+                        <p>Tracks your stress levels and suggests breaks or relaxation techniques when needed.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Social Balance</h3>
+                        <p>Helps you maintain healthy relationships by reminding you to connect with friends and family.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3>Assignment Alerts</h3>
+                        <p>Never miss a deadline with smart reminders for assignments and exams.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <h3>Sleep Optimization</h3>
+                        <p>Tracks your sleep patterns and suggests improvements for better rest and performance.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Performance Analytics</h3>
+                        <p>Provides insights into your study habits and suggests improvements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Showcase -->
+        <section class="product-showcase">
+            <div class="container showcase-container">
+                <!--<div class="showcase-image">
+                   <img src="watch-showcase-placeholder.jpg" alt="Stresslite Watch Features">
+                </div>-->
+
+                <video autoplay loop muted>
+                    <source src="advert 2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+
+                <div class="showcase-content">
+                    <h2>Designed for Student Success</h2>
+                    <p>The Stresslite Watch isn't just another smartwatch - it's a comprehensive tool designed specifically to address the unique challenges faced by university students in South Africa.</p>
+                    <p>With features tailored to academic life, social balance, and stress management, it helps you make the most of your university experience.</p>
+                    <div class="specs-list">
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>7-day battery life</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>Water resistant (up to 50m)</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>Compatible with iOS and Android</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>Customizable watch faces</div>
+                        </div>
+                    </div>
+                    <a href="#product" class="cta-button">See All Features</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What Students Say</h2>
+                    <p>Hear from university students who have transformed their academic experience with Stresslite.</p>
+                </div>
+                <div class="testimonials-slider">
+                    <div class="testimonial active">
+                        <p class="testimonial-text">"The Stresslite Watch has completely changed how I manage my time. I'm getting better grades while still having time to see my friends. It's like having a personal assistant on my wrist!"</p>
+                        <p class="testimonial-author">Thando M.</p>
+                        <p class="testimonial-role">Computer Science Student, University of Cape Town</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"I used to feel overwhelmed trying to balance everything. Now my Stresslite helps me stay on track with my studies and reminds me when it's time to take a break or call home."</p>
+                        <p class="testimonial-author">Lerato K.</p>
+                        <p class="testimonial-role">Law Student, University of Pretoria</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"The stress monitoring feature is a game-changer. It helps me recognize when I need to slow down before I burn out. My grades and mental health have both improved."</p>
+                        <p class="testimonial-author">Sipho D.</p>
+                        <p class="testimonial-role">Engineering Student, Wits University</p>
+                    </div>
+                    <div class="slider-controls">
+                        <div class="slider-dot active" data-slide="0"></div>
+                        <div class="slider-dot" data-slide="1"></div>
+                        <div class="slider-dot" data-slide="2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            const dots = document.querySelectorAll('.slider-dot');
+            const testimonials = document.querySelectorAll('.testimonial');
+        
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const slideIndex = dot.getAttribute('data-slide');
+        
+                    testimonials.forEach((testimonial, index) => {
+                        testimonial.classList.toggle('active', index == slideIndex);
+                    });
+        
+                    dots.forEach(d => d.classList.remove('active'));
+                    dot.classList.add('active');
+                });
+            });
+        </script>
+
+        <!-- Advert Section -->
+        <!--<section class="advert" style="background: linear-gradient(135deg, var(--primary), var(--primary-light)); padding: 60px 0; color: white; text-align: center;">
+            <div class="container">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Limited Time Student Discount</h2>
+                <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px;">Register with your student email and get 20% off your Stresslite Watch. Offer valid until end of semester.</p>
+                <a href="#contact" class="cta-button" style="background: var(--accent); color: white;">Claim Your Discount</a>
+            </div>
+        </section>-->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Stresslite</h3>
+                    <p>Helping students balance academics and social life through innovative wearable technology.</p>
+                    <div class="social-links-footer">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="Stresslite.html">Home</a></li>
+                        <li><a href="About us.html">About Us</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Warranty</a></li>
+                        <li><a href="#">Student Discount</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for student tips, product updates, and exclusive offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" class="form-control" style="margin-bottom: 10px;">
+                        <button type="submit" class="submit-btn" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Stresslite. All rights reserved. Designed for South African university students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- About Us Page -->
+    <div class="page" id="about-page">
+        <section class="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About Stresslite</h2>
+                    <p>Our mission to help students achieve balance in their academic and personal lives.</p>
+                </div>
+                <div class="about-container">
+                    <div class="about-image">
+                        <img src="team-placeholder.jpg" alt="Stresslite Team">
+                    </div>
+                    <div class="about-content">
+                        <h2>Our Story</h2>
+                        <p>Stresslite was founded in 2023 by a group of former university students who struggled with the same challenges today's students face - balancing demanding academic schedules with maintaining healthy social lives and managing stress.</p>
+                        <p>After graduating, we realized that with the right tools and technology, these challenges could be significantly reduced. That's when we set out to create Stresslite Watches - smart devices specifically designed to help students manage their time, reduce stress, and maintain healthy relationships.</p>
+                        <p>Based in Johannesburg, South Africa, our team is passionate about supporting the next generation of leaders and professionals through innovative technology solutions.</p>
+                        
+                        <div class="mission-vision">
+                            <h3>Our Mission</h3>
+                            <p>To empower university students with smart technology that helps them achieve academic success while maintaining healthy lifestyles and relationships.</p>
+                            
+                            <h3>Our Vision</h3>
+                            <p>A world where every student has the tools they need to thrive in university and beyond, without sacrificing their wellbeing or personal connections.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" style="background-color: white;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Values</h2>
+                    <p>The principles that guide everything we do at Stresslite.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Student-Centric</h3>
+                        <p>Every feature is designed with real student needs in mind, based on extensive research and feedback.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Supportive</h3>
+                        <p>We're not just selling a product - we're building a support system for students throughout their journey.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovative</h3>
+                        <p>We continuously improve our products based on the latest research in education technology and student wellbeing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Meet The Team</h2>
+                    <p>The passionate individuals behind Stresslite Watches.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Nomsa Khumalo</h3>
+                        <p>CEO & Co-Founder</p>
+                        <p>Former UCT engineering student who struggled with time management during her studies.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Tebogo Moloi</h3>
+                        <p>CTO & Co-Founder</p>
+                        <p>Wits computer science graduate who developed the first prototype in his dorm room.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Lerato van Wyk</h3>
+                        <p>Head of Product Design</p>
+                        <p>Combines her background in psychology and design to create student-friendly interfaces.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Product Page -->
+    <div class="page" id="product-page">
+        <section class="hero" style="background: linear-gradient(135deg, var(--secondary), #0097a7);

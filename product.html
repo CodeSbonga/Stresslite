@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Product - Stresslite Watches</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5e35b1;
+            --primary-light: #9162e4;
+            --secondary: #00acc1;
+            --accent: #ff7043;
+            --light: #f5f5f5;
+            --dark: #263238;
+            --text: #455a64;
+            --success: #43a047;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo-slogan {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            display: block;
+            line-height: 1.2;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .product-hero {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: 50px;
+        }
+
+        .product-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://example.com/your-hero-pattern.jpg') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .product-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .product-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            animation: fadeInDown 1s ease;
+        }
+
+        .product-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            animation: fadeIn 1s ease 0.6s both;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent);
+        }
+
+        .breadcrumb a::after {
+            content: '>';
+            position: absolute;
+            right: -15px;
+            color: white;
+        }
+
+        .breadcrumb a:last-child::after {
+            display: none;
+        }
+
+        .breadcrumb a.active {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Product Showcase */
+        .product-showcase {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .product-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('pattern-bg.png') repeat;
+            opacity: 0.03;
+            z-index: -1;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .product-gallery {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .main-product-image {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            cursor: zoom-in;
+        }
+
+        .main-product-image:hover {
+            transform: scale(1.02);
+        }
+
+        .thumbnail-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .thumbnail:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        .thumbnail.active {
+            border-color: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        .product-details {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .product-details h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .product-desc {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .color-options {
+            margin-bottom: 25px;
+        }
+
+        .color-options h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .colors {
+            display: flex;
+            gap: 10px;
+        }
+
+        .color {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .color:hover {
+            transform: scale(1.1);
+        }
+
+        .color.active {
+            border-color: var(--dark);
+            transform: scale(1.1);
+        }
+
+        .color-1 { background-color: #5e35b1; }
+        .color-2 { background-color: #263238; }
+        .color-3 { background-color: #00acc1; }
+        .color-4 { background-color: #e0e0e0; }
+
+        .quantity-selector {
+            margin-bottom: 25px;
+        }
+
+        .quantity-selector h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .qty-btn {
+            width: 40px;
+            height: 40px;
+            background: var(--light);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .qty-btn:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .quantity {
+            font-size: 1.2rem;
+            font-weight: 600;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .wishlist-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .wishlist-btn:hover {
+            color: var(--accent);
+        }
+
+        .wishlist-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f9f9f9, #eef2f5);
+            clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+            margin: 50px 0;
+        }
+
+        .features-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .tab-btn:hover:not(.active) {
+            color: var(--secondary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            height: 100%;
+            opacity: 0.1;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* Specs Section */
+        .specs-section {
+            padding: 80px 0;
+        }
+
+        .specs-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .specs-image {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .specs-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .specs-list {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .specs-list h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .specs-list h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .spec-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+
+        .spec-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .spec-title i {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        .spec-title h4 {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .spec-value {
+            font-size: 1rem;
+            padding-left: 25px;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f9f9f9, #eef2f5);
+            clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .comparison-table th {
+            background: var(--primary);
+            color: white;
+            font-weight: 500;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:hover td {
+            background: rgba(0, 172, 193, 0.05);
+        }
+
+        .feature-present {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .feature-absent {
+            color: #e53935;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 0;
+        }
+
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 40px auto 0;
+            position: relative;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            margin: 20px;
+            display: none;
+        }
+
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        .testimonial-text::before, .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .testimonial-text::before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-text::after {
+            bottom: -40px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            margin-top: 30px;
+        }
+
+        .author-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            overflow: hidden;
+            border: 3px solid var(--secondary);
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .author-role {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .slider-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-btn:hover {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            text-align: center;
+            clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-container p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 5px;
+        }
+
+        .social-links-footer {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links-footer a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links-footer a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 10px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .product-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .product-price {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-hero {
+                padding: 150px 0 80px;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+            
+            .product-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .product-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .product-hero {
+                padding: 130px 0 60px;
+            }
+            
+            .product-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .thumbnail-container {
+                justify-content: center;
+            }
+
+            .cta-container h2 {
+                font-size: 2rem;
+            }
+
+            .cta-container p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Stresslite Logo" class="logo">
+                <div class="logo-text">
+                    Stresslite
+                    <span class="logo-slogan">Manage your time. Manage your stress</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="Stresslite.html">Home</a></li>
+                    <li><a href="About us.html">About Us</a></li>
+                    <li><a href="product.html" class="active">Product</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="product-hero">
+        <div class="container product-hero-content">
+            <h1>Stresslite Smart Watch</h1>
+            <p>The ultimate companion for university students to balance academics and social life</p>
+            
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="product-showcase">
+        <div class="container">
+            <div class="product-container">
+                <div class="product-gallery">
+                    <img src="black main.jpeg" alt="Stresslite Watch" class="main-product-image" id="mainProductImage">
+                    <div class="thumbnail-container">
+                        <img src="Watch 1.jpeg" alt="Watch Angle 1" class="thumbnail active" data-image="Watch 1.jpeg">
+                        <img src="black 2.jpg" alt="Watch Angle 2" class="thumbnail" data-image="black 2.jpg">
+                        <img src="black 1.jpg" alt="Watch Angle 3" class="thumbnail" data-image="black 1.jpg">
+                        <!--<img src="watch-angle4.jpg" alt="Watch Angle 4" class="thumbnail" data-image="watch-angle4.jpg">-->
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h2>Stresslite Smart Watch Pro</h2>
+                    <div class="product-price">R2,499.00</div>
+                    <div class="product-desc">
+                        <p>The Stresslite Smart Watch Pro is specifically designed for university students to help manage time, reduce stress, and maintain a healthy balance between academics and social life. With its student-centric features and intuitive interface, it's more than just a smartwatch—it's your personal academic assistant.</p>
+                    </div>
+                    <div class="color-options">
+                        <h4>Color Options</h4>
+                        <div class="colors">
+                            <!--<div class="color color-1 active" data-color="Deep Purple"></div>
+                            <div class="color color-4" data-color="Silver White"></div>-->
+                            <div class="color color-3" data-color="Ocean Blue"></div>
+                            <div class="color color-2" data-color="Graphite Black"></div>
+                            
+                        </div>
+                    </div>
+                    <!--<div class="quantity-selector">
+                        <h4>Quantity</h4>
+                        <div class="quantity-control">
+                            <button class="qty-btn" id="decreaseQty">-</button>
+                            <span class="quantity" id="quantity">1</span>
+                            <button class="qty-btn" id="increaseQty">+</button>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary">Add to Cart</button>
+                        <button class="btn btn-outline">Buy Now</button>
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>-->
+                    <h2>Currently Sold Out</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Designed for Student Success</h2>
+                <p>Explore the features that make Stresslite the perfect companion for university life</p>
+            </div>
+            <div class="features-tabs">
+                <button class="tab-btn active" data-tab="academic">Academic</button>
+                <button class="tab-btn" data-tab="wellness">Wellness</button>
+                <button class="tab-btn" data-tab="social">Social</button>
+                <button class="tab-btn" data-tab="technical">Technical</button>
+            </div>
+            <div class="tab-content active" id="academic-tab">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Smart Class Scheduler</h3>
+                        <p>Automatically syncs with your university timetable and reminds you of upcoming classes, including room changes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3>Assignment Tracker</h3>
+                        <p>Never miss a deadline with intelligent assignment tracking and prioritized to-do lists based on due dates.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Study Session Timer</h3>
+                        <p>Optimized Pomodoro timer with subject-specific intervals and break suggestions based on your focus levels.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="wellness-tab">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Stress Monitor</h3>
+                        <p>Advanced sensors track your stress levels and suggest breathing exercises or breaks when needed.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <h3>Sleep Optimizer</h3>
+                        <p>Tracks sleep patterns and suggests optimal bedtimes based on your class schedule the next day.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-walking"></i>
+                        </div>
+                        <h3>Activity Coach</h3>
+                        <p>Gentle reminders to move between study sessions with quick, effective exercise suggestions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="social-tab">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Social Balance</h3>
+                        <p>Tracks your social interactions and reminds you to connect with friends when study time exceeds healthy limits.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Family Connect</h3>
+                        <p>Discreet reminders to call home when it's been too long, with suggested times based on time zones.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Event Suggestions</h3>
+                        <p>Recommends campus events based on your interests and available free time in your schedule.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="technical-tab">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                        <h3>7-Day Battery</h3>
+                        <p>Extended battery life means fewer charges during busy exam weeks when you need it most.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3>Water Resistant</h3>
+                        <p>Withstands splashes, rain, and even swimming up to 50m depth - perfect for active student lifestyles.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Cross-Platform</h3>
+                        <p>Works seamlessly with both iOS and Android devices, with full university app integration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+    </section>
+
+    <!-- Specs Section-->
+
+     <!-- Footer -->
+     <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Stresslite</h3>
+                    <p>Helping students balance academics and social life through innovative wearable technology.</p>
+                    <div class="social-links-footer">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="Stresslite.html">Home</a></li>
+                        <li><a href="About us.html">About Us</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Warranty</a></li>
+                        <li><a href="#">Student Discount</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for student tips, product updates, and exclusive offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" class="form-control" style="margin-bottom: 10px;">
+                        <button type="submit" class="submit-btn" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Stresslite. All rights reserved. Designed for South African university students.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Product Image Gallery
+const mainProductImage = document.getElementById('mainProductImage');
+const thumbnails = document.querySelectorAll('.thumbnail');
+
+thumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('click', () => {
+        // Remove active class from all thumbnails
+        thumbnails.forEach(t => t.classList.remove('active'));
+        // Add active class to clicked thumbnail
+        thumbnail.classList.add('active');
+        // Change main image
+        mainProductImage.src = thumbnail.getAttribute('data-image');
+    });
+});
+
+// Color Selection
+const colors = document.querySelectorAll('.color');
+colors.forEach(color => {
+    color.addEventListener('click', () => {
+        // Remove active class from all colors
+        colors.forEach(c => c.classList.remove('active'));
+        // Add active class to clicked color
+        color.classList.add('active');
+        // Here you would typically update product variant
+        console.log(`Selected color: ${color.getAttribute('data-color')}`);
+    });
+});
+
+// Quantity Selector
+const decreaseBtn = document.getElementById('decreaseQty');
+const increaseBtn = document.getElementById('increaseQty');
+const quantityDisplay = document.getElementById('quantity');
+let quantity = 1;
+
+decreaseBtn.addEventListener('click', () => {
+    if (quantity > 1) {
+        quantity--;
+        quantityDisplay.textContent = quantity;
+    }
+});
+
+increaseBtn.addEventListener('click', () => {
+    quantity++;
+    quantityDisplay.textContent = quantity;
+});
+
+// Add to Cart Button
+const addToCartBtn = document.querySelector('.btn-primary');
+addToCartBtn.addEventListener('click', () => {
+    const selectedColor = document.querySelector('.color.active').getAttribute('data-color');
+    console.log(`Added ${quantity} ${selectedColor} Stresslite Watch(es) to cart`);
+    // Here you would typically call your cart API
+});
+
+// Buy Now Button
+const buyNowBtn = document.querySelector('.btn-outline');
+buyNowBtn.addEventListener('click', () => {
+    console.log('Proceeding to checkout');
+    // Here you would typically redirect to checkout
+});
+
+// Wishlist Button
+const wishlistBtn = document.querySelector('.wishlist-btn');
+wishlistBtn.addEventListener('click', () => {
+    const icon = wishlistBtn.querySelector('i');
+    if (icon.classList.contains('far')) {
+        icon.classList.remove('far');
+        icon.classList.add('fas');
+        wishlistBtn.querySelector('span').textContent = 'Added to Wishlist';
+        console.log('Added to wishlist');
+    } else {
+        icon.classList.remove('fas');
+        icon.classList.add('far');
+        wishlistBtn.querySelector('span').textContent = 'Add to Wishlist';
+        console.log('Removed from wishlist');
+    }
+});
+
+// Feature Tabs
+/*
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Remove active class from all buttons and contents
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+        
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        // Show corresponding content
+        const tabId = btn.getAttribute('data-tab') + '-tab';
+        document.getElementById(tabId).classList.add('active');
+    });
+});*/
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-content');
+
+    function clearActiveStates() {
+        tabButtons.forEach(button => button.classList.remove('active'));
+        tabPanels.forEach(panel => panel.classList.remove('active'));
+    }
+
+    function setActiveTab(tabName) {
+        const targetPanel = document.getElementById(`${tabName}-tab`);
+        if (targetPanel) {
+            targetPanel.classList.add('active');
+        }
+    }
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tabName = button.getAttribute('data-tab');
+            clearActiveStates();
+            button.classList.add('active');
+            setActiveTab(tabName);
+        });
+    });
+});
+
+
+// Testimonial Slider
+const testimonials = document.querySelectorAll('.testimonial');
+const sliderBtns = document.querySelectorAll('.slider-btn');
+let currentTestimonial = 0;
+
+function showTestimonial(index) {
+    testimonials.forEach(t => t.classList.remove('active'));
+    testimonials[index].classList.add('active');
+}
+
+sliderBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+        if (index === 0) {
+            // Previous button
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+        } else {
+            // Next button
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        }
+        showTestimonial(currentTestimonial);
+    });
+});
+
+// Initialize first testimonial
+showTestimonial(0);
+
+// Image Modal
+const mainImage = document.getElementById('mainProductImage');
+const modal = document.createElement('div');
+modal.className = 'modal';
+modal.innerHTML = `
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <img src="" alt="Enlarged Product View">
+    </div>`;
+document.body.appendChild(modal);
+
+mainImage.addEventListener('click', () => {
+    const modalImg = modal.querySelector('img');
+    modalImg.src = mainImage.src;
+    modal.classList.add('active');
+});
+
+modal.querySelector('.close-modal').addEventListener('click', () => {
+    modal.classList.remove('active');
+});
+
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.classList.remove('active');
+    }
+});
+
+// Animate elements when they come into view
+const animateOnScroll = () => {
+    const elements = document.querySelectorAll('.product-container, .features-grid, .specs-container');
+    
+    elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }
+    });
+};
+
+// Set initial state for animation
+document.querySelectorAll('.product-container, .features-grid, .specs-container').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+});
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+
+// Student Discount Timer
+const discountEndDate = new Date();
+discountEndDate.setDate(discountEndDate.getDate() + 7); // 7 days from now
+
+function updateDiscountTimer() {
+    const now = new Date();
+    const diff = discountEndDate - now;
+    
+    if (diff <= 0) {
+        document.getElementById('discount-timer').textContent = 'Offer expired';
+        return;
+    }
+    
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    document.getElementById('discount-timer').textContent = 
+        `${days}d ${hours}h ${minutes}m ${seconds}s remaining`;
+}
+
+// Initialize and update timer every second
+updateDiscountTimer();
+setInterval(updateDiscountTimer, 1000);
+        </script>
+        
+          
